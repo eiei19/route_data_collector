@@ -24,7 +24,12 @@ class Route < ActiveRecord::Base
 
     doc.css("#routesum_area .emphasis_time").each_with_index do |element, index|
       i = (index+1).to_s
-      minutes = element.text.gsub(REMOVE_REGEX, "").gsub(/.*\(/, "").gsub(/\D/, "").to_i
+      time = element.text.gsub(REMOVE_REGEX, "").gsub(/.*\(/, "").split("時間").map{|v|v.gsub(/\D/, "").to_i}
+      if time.count == 2
+        minutes = (time[0]*60)+time[1]
+      else
+        minutes = time[0]
+      end
       self[("minutes"+i).to_sym] = minutes
       reverse[("minutes"+i).to_sym] = minutes
     end

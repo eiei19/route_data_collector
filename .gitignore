@@ -3,5 +3,4 @@
 /vendor/bundler
 /public/uploads
 /public/system
-/config/secrets.yml
 /config/database.yml

@@ -8,6 +8,7 @@ class Route < ActiveRecord::Base
     end
 
     reverse = Route.find_by(from: to, to: from)
+
     params = {
       orvStationName: from,
       dnvStationName: to,
@@ -43,5 +44,7 @@ class Route < ActiveRecord::Base
 
     self.save
     reverse.save
+  rescue
+    return false
   end
 end

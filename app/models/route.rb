@@ -42,6 +42,8 @@ class Route < ActiveRecord::Base
       reverse[("transfers"+i).to_sym] = transfers
     end
 
+    self.tried = true
+    reverse.tried = true
     self.save
     reverse.save
   rescue

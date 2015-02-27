@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223024335) do
+ActiveRecord::Schema.define(version: 20150227102143) do
 
   create_table "routes", force: :cascade do |t|
     t.string   "from",       limit: 255
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150223024335) do
     t.integer  "transfers4", limit: 4
     t.integer  "minutes5",   limit: 4
     t.integer  "transfers5", limit: 4
+    t.boolean  "tried",      limit: 1,   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
